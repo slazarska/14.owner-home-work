@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import tests.config.WebConfig;
 
 import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.sleep;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class WebTests extends TestBase {
@@ -14,38 +13,28 @@ public class WebTests extends TestBase {
             System.getProperties());
 
     @Test
-    public void openGitHub() {
+    public void openGithub() {
+        open("https://github.com/");
         System.out.println("browserName: " + webConfig.getBrowserName());
         System.out.println("browserVersion: " + webConfig.getBrowserVersion());
         System.out.println("remote: " + webConfig.isRemote());
         System.out.println("selenideUrl: " + webConfig.selenideUrl());
         System.out.println("selenideLogin: " + webConfig.getLogin());
         System.out.println("selenidePassword: " + webConfig.getPassword());
-
-        open("https://github.com/");
-        sleep(5000);
     }
 
-//    @Test
-//    void runWithLocalConfigFile() {
-//
-//        assertThat("chrome")
-//                .isEqualTo(webConfig.getBrowserName());
-//        assertThat("91.0")
-//                .isEqualTo(webConfig.getBrowserVersion());
-//        assertThat(false)
-//                .isEqualTo(webConfig.isRemote());
-//    }
-//
-//
-//    @Test
-//    void runWithRemoteConfigFile() {
-//
-//        assertThat("chrome")
-//                .isEqualTo(webConfig.getBrowserName());
-//        assertThat("91.0")
-//                .isEqualTo(webConfig.getBrowserVersion());
-//        assertThat(true)
-//                .isEqualTo(webConfig.isRemote());
-//    }
+    @Test
+    void checkWebConfig() {
+        assertThat("chrome")
+                .isEqualTo(webConfig.getBrowserName());
+        assertThat("91.0")
+                .isEqualTo(webConfig.getBrowserVersion());
+        if (webConfig.isRemote() == false) {
+            assertThat(false)
+                    .isEqualTo(webConfig.isRemote());
+        } else {
+            assertThat(true)
+                    .isEqualTo(webConfig.isRemote());
+        }
+    }
 }

@@ -1,11 +1,11 @@
 ### How to run with terminal commands
-For web config
+Remote run for web config using file
 ```bash
-gradle clean -Dconf=local test --tests "tests.WebConfigTests"
+gradle clean test --tests WebTests -Dstage=remote
 ```
-or
+Local run for web config using file
 ```bash
-gradle clean -Dconf=remote test --tests "tests.WebConfigTests"
+gradle clean test --tests WebTests -Dstage=local
 ```
 
 For api config using system properties

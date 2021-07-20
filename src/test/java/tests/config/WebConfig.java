@@ -3,11 +3,9 @@ package tests.config;
 import org.aeonbits.owner.Config;
 
 @Config.Sources({
-        "classpath:run_configuration/${stage}.properties",
-        //"file:src/test/resources/run_configuration/${stage}.properties"
+        "classpath:run_configuration/${stage}.properties"
 })
-//@Config.LoadPolicy(Config.LoadType.MERGE)
-public interface WebConfig extends Config{
+public interface WebConfig extends Config {
 
     @Key("browser.name")
     String getBrowserName();
