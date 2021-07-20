@@ -2,32 +2,29 @@ package tests.config;
 
 import org.aeonbits.owner.Config;
 
-//@Config.Sources({
-//        "vault:/path/to/file",
-//        "classpath:local.properties"
-//})
-//@Config.LoadPolicy(Config.LoadType.MERGE)
-
 @Config.Sources({
-        "classpath:config/${localOrRemote}Web.properties"
+        "classpath:run_configuration/${stage}.properties",
+        //"file:src/test/resources/run_configuration/${stage}.properties"
 })
+//@Config.LoadPolicy(Config.LoadType.MERGE)
 public interface WebConfig extends Config{
 
     @Key("browser.name")
-    String browserName();
+    String getBrowserName();
 
     @Key("browser.version")
-    String browserVersion();
+    String getBrowserVersion();
 
-    @Key("remote")
-    Boolean remote();
+    @Key("browser.remote.run")
+    Boolean isRemote();
 
+    //todo URL
     @Key("selenide.url")
     String selenideUrl();
 
     @Key("selenide.login")
-    String selenideLogin();
+    String getLogin();
 
     @Key("selenide.password")
-    String selenidePassword();
+    String getPassword();
 }

@@ -2,16 +2,17 @@ package tests.config;
 
 import org.aeonbits.owner.Config;
 
-@Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources({
         "system:properties",
-        "classpath:config/api.properties"
+        "classpath:api.properties",
+        //"file:src/test/resources/api.properties"
 })
+@Config.LoadPolicy(Config.LoadType.MERGE)
 public interface ApiConfig extends Config {
 
-    @Key("url")
-    String url();
+    @Key("base.url")
+    String getBaseUrl();
 
     @Key("token")
-    String token();
+    String getToken();
 }

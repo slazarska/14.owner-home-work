@@ -22,14 +22,17 @@ allure {
 }
 
 dependencies {
-    testImplementation (
+    testImplementation(
             "com.codeborne:selenide:$selenideVersion",
             "org.junit.jupiter:junit-jupiter-api:$junitVersion",
             "org.aspectj:aspectjweaver:1.9.6",
             "io.qameta.allure:allure-selenide:$allureVersion",
-            "org.aeonbits.owner:owner:1.0.12"
+            "org.aeonbits.owner:owner:1.0.12",
+            'org.assertj:assertj-core:3.20.2',
+            "org.slf4j:slf4j-simple:1.7.30"
     )
-    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitVersion",
+            "org.slf4j:slf4j-simple:1.7.30")
 }
 
 tasks.withType(JavaCompile) {
