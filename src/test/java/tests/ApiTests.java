@@ -17,13 +17,13 @@ public class ApiTests {
         System.out.println("token: " + apiConfig.getToken());
     }
 
-    @Test
-    void getTokenFromFile() {
-        assertThat("localhost")
-                .isEqualTo(apiConfig.getBaseUrl());
-        assertThat("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9")
-                .isEqualTo(apiConfig.getToken());
-    }
+//    @Test
+//    void getTokenFromFile() {
+//        assertThat("localhost")
+//                .isEqualTo(apiConfig.getBaseUrl());
+//        assertThat("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9")
+//                .isEqualTo(apiConfig.getToken());
+//    }
 //
 //    @Test
 //    void getTokenFromSystemProperties() {

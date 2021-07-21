@@ -8,12 +8,12 @@ Local run for web config using file
 gradle clean test --tests WebTests -Dstage=local
 ```
 
-For api config using system properties
+Run for api config using system properties
 ```bash
-gradlew clean -Dbase.url=localhost -Dtoken=token23 test --tests "tests.ApiConfigTests"
+gradle clean test --tests ApiTests -Dbase.url=localhost -Dtoken=12345
 ```
 
-For api config using file
+Run for api config using file
 ```bash
-gradlew clean  test --tests "tests.ApiConfigTests"
+gradle clean test --tests ApiTests
 ```

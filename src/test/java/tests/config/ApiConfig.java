@@ -5,7 +5,6 @@ import org.aeonbits.owner.Config;
 @Config.Sources({
         "system:properties",
         "classpath:api.properties",
-        //"file:src/test/resources/api.properties"
 })
 @Config.LoadPolicy(Config.LoadType.MERGE)
 public interface ApiConfig extends Config {
